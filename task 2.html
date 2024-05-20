@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Guessing Game</h2>
+
+<p>We have generated a random number between 1 and 100. Can you guess what it is?</p>
+
+<input id="guessInput" type="number" placeholder="Enter your guess">
+<button onclick="checkGuess()">Submit Guess</button>
+
+<p id="result"></p>
+<p id="attempts"></p>
+
+<script>
+var number = Math.floor(Math.random() * 100) + 1;
+var attempts = 0;
+
+function checkGuess() {
+  attempts++;
+  var guess = document.getElementById('guessInput').value;
+
+  if (guess < number) {
+    document.getElementById('result').innerHTML = 'Too low!';
+  } else if (guess > number) {
+    document.getElementById('result').innerHTML = 'Too high!';
+  } else {
+    document.getElementById('result').innerHTML = 'Congratulations! You guessed the number.';
+    document.getElementById('attempts').innerHTML = 'It took you ' + attempts + ' attempts.';
+  }
+}
+</script>
+
+</body>
+</html>
